@@ -9,8 +9,8 @@ const EmbedListHelp = (msg) => {
             .setDescription('Aqui estão listados todos os comandos do bot')
             .setThumbnail(`${msg.author.displayAvatarURL({ size: 1024 })}`)
             .addFields(
-                { name: '#comandsmusic', value: 'Lista todos os comandos relacionados a músicas' },
-                { name: '#comandsadmin', value: 'Lista todos os comandos de administradores' },
+                { name: '#music', value: 'Lista todos os comandos relacionados a músicas' },
+                { name: '#admin', value: 'Lista todos os comandos de administradores' },
             )
             .setTimestamp()
             .setFooter('Criador: @gui_leoni14')

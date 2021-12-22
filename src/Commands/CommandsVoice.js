@@ -8,8 +8,9 @@ const { Help } = require('../Functions/Help/Help');
 
 // Aqui ficam os comandos que necessitam ao usuário estar em um canal de voz
 const CommandsVoice = async (msg) => {
-    if (!msg.member.voice.channel) {
-        console.log('If do voice');
+    const [command, ...resto] = msg.content.split(' ');
+    const voiceCommands = ['#play', '#skip', '#resume', '#pause', '#list', '#reset', '#join', '#leave'];
+    if (!msg.member.voice.channel && voiceCommands.includes(command)) {
         EmbedUserErr(
             msg,
             'Comando Invalido',
