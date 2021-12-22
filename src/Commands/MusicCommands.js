@@ -1,6 +1,4 @@
-const { prefix, RequiredVoiceChannel } = require('../global');
-const { EmbedUserErr } = require('../Components/Embed/EmbedUser');
-const { servers } = require('../Functions/Server/Server');
+const { prefix } = require('../global');
 const { MusicPlay, MusicSkip, MusicReset, MusicPause, MusicResume, MusicList } = require('../Functions/Music/Music');
 
 // Aqui ficam os comandos relacionados a musicas

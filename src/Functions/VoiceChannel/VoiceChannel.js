@@ -1,6 +1,5 @@
 const { prefix } = require('../../global');
 const { servers } = require('../Server/Server');
-const { EmbedUserErr } = require('../../Components/Embed/EmbedUser');
 const { resetVariaveis } = require('../../global');
 
 const VoiceChannel = async (msg) => {
