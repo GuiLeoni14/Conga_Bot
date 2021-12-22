@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 // inside a command, event listener, etc.
-const EmbedUser = (msg, title, description) => {
+const EmbedUserErr = (msg, title, description) => {
     try {
         const EmbedMessageUser = new MessageEmbed()
             .setColor('#0099ff')
@@ -18,5 +18,5 @@ const EmbedUser = (msg, title, description) => {
 };
 
 module.exports = {
-    EmbedUser,
+    EmbedUserErr,
 };

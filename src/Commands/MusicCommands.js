@@ -1,8 +1,10 @@
-const { prefix } = require('../global');
+const { prefix, RequiredVoiceChannel } = require('../global');
+const { EmbedUserErr } = require('../Components/Embed/EmbedUser');
 const { servers } = require('../Functions/Server/Server');
 const { MusicPlay, MusicSkip, MusicReset, MusicPause, MusicResume, MusicList } = require('../Functions/Music/Music');
 
-const MusicComands = (msg) => {
+// Aqui ficam os comandos relacionados a musicas
+const MusicCommands = (msg) => {
     // eslint-disable-next-line
     const [comando_recebido, ...resto] = msg.content.split(' ');
     // eslint-disable-next-line
@@ -32,5 +34,5 @@ const MusicComands = (msg) => {
 };
 
 module.exports = {
-    MusicComands,
+    MusicCommands,
 };

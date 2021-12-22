@@ -1,7 +1,7 @@
 const { servers } = require('../Server/Server');
 const { ytdl, youtube, Discord } = require('../../global');
 const { configs } = require('../../global');
-const { EmbedUser } = require('../../Components/Embed/EmbedUser');
+const { EmbedUserErr } = require('../../Components/Embed/EmbedUser');
 const {
     EmbedMusicErr,
     EmbedMusicAdd,

@@ -2,7 +2,7 @@
 const { configs, cliente, prefix, resetVariaveis, TOKKEN } = require('./src/global');
 const { Admin } = require('./src/Functions/Admin/Admin');
 const { servers, saveServer, loadServers } = require('./src/Functions/Server/Server');
-const { AllComands } = require('./src/Commands/AllComands');
+const { AllCommands } = require('./src/Commands/AllCommands');
 const { searchYoutubeMusic } = require('./src/Functions/Music/Youtube');
 
 cliente.on('ready', () => {
@@ -22,7 +22,7 @@ cliente.on('guildCreate', (guild) => {
 });
 
 cliente.on('message', async (msg) => {
-    AllComands(msg);
+    AllCommands(msg);
     if (msg.content === `${prefix}admin`) {
         try {
             const teste = await searchYoutubeMusic('https://youtu.be/2_xBCeBmaS8');
