@@ -3,7 +3,7 @@ const { commandsVoice } = require('./CommandsVoice');
 const { help } = require('../Functions/Help/Help');
 
 // Aqui ficam todos os comandos
-const AllCommands = async (msg) => {
+const allCommands = async (msg) => {
     if (!msg.guild) return;
     if (!msg.content.startsWith(prefix)) return;
     help(msg);
@@ -11,5 +11,5 @@ const AllCommands = async (msg) => {
 };
 
 module.exports = {
-    AllCommands,
+    allCommands,
 };
