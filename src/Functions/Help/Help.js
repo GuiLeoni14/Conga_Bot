@@ -1,15 +1,15 @@
-const { EmbedListHelp, EmbedListMusic } = require('../../Components/Embed/EmbedListCommands');
+const { embedListHelp, embedListMusic } = require('../../Components/Embed/EmbedListCommands');
 const { prefix } = require('../../global');
 
-const Help = (msg) => {
+const help = (msg) => {
     if (msg.content === `${prefix}help`) {
-        EmbedListHelp(msg);
+        embedListHelp(msg);
     }
     if (msg.content === `${prefix}music`) {
-        EmbedListMusic(msg);
+        embedListMusic(msg);
     }
 };
 
 module.exports = {
-    Help,
+    help,
 };

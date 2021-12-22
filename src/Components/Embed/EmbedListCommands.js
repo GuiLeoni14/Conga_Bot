@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 // inside a command, event listener, etc.
-const EmbedListHelp = (msg) => {
+const embedListHelp = (msg) => {
     try {
         const EmbedMessageListHelp = new MessageEmbed()
             .setColor('#0099ff')
@@ -21,7 +21,7 @@ const EmbedListHelp = (msg) => {
     }
 };
 
-const EmbedListMusic = (msg) => {
+const embedListMusic = (msg) => {
     try {
         const EmbedMessageListMusic = new MessageEmbed()
             .setColor('#0099ff')
@@ -44,6 +44,6 @@ const EmbedListMusic = (msg) => {
 };
 
 module.exports = {
-    EmbedListHelp,
-    EmbedListMusic,
+    embedListHelp,
+    embedListMusic,
 };

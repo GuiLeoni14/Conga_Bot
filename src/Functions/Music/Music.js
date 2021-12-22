@@ -2,17 +2,17 @@ const { servers } = require('../Server/Server');
 const { ytdl, youtube, Discord } = require('../../global');
 const { configs } = require('../../global');
 const {
-    EmbedMusicErr,
-    EmbedMusicAdd,
-    EmbedMusicList,
-    EmbedMusicTocando,
+    embedMusicErr,
+    embedMusicAdd,
+    embedMusicList,
+    embedMusicTocando,
 } = require('../../Components/Embed/EmbedMusic');
 
 const tocaMusicas = (msg) => {
     if (servers[msg.guild.id].estouTocando === false) {
         const tocando = servers[msg.guild.id].fila[0];
         console.log(`Musica que estou tocando: ${tocando}`);
-        EmbedMusicTocando(msg, servers[msg.guild.id].fila[0]);
+        embedMusicTocando(msg, servers[msg.guild.id].fila[0]);
         servers[msg.guild.id].estouTocando = true;
         servers[msg.guild.id].dispatcher = servers[msg.guild.id].connection.play(ytdl(tocando, configs.YTDLOP));
         servers[msg.guild.id].dispatcher.on('finish', () => {
@@ -30,11 +30,11 @@ const tocaMusicas = (msg) => {
     }
 };
 
-const MusicPlay = async (msg) => {
-    console.log('Chamou MusicPlay');
+const musicPlay = async (msg) => {
+    console.log('Chamou musicPlay');
     const musicaTocar = msg.content.slice(6);
     if (musicaTocar.length === 0) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Você não informou nada para tocar: ${msg.content} não disponível!`,
@@ -109,7 +109,7 @@ const MusicPlay = async (msg) => {
                             .then((collected) => {
                                 const reaction = collected.first();
                                 const idOpcEscolhida = possiveisReacoes.indexOf(reaction.emoji.name);
-                                EmbedMusicAdd(
+                                embedMusicAdd(
                                     msg,
                                     listaResultados[idOpcEscolhida].tituloVideo,
                                     listaResultados[idOpcEscolhida].nomeCanal,
@@ -130,9 +130,9 @@ const MusicPlay = async (msg) => {
     }
 };
 
-const MusicPause = (msg) => {
+const musicPause = (msg) => {
     if (!servers[msg.guild.id].estouTocando) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Nenhuma musica está sendo tocada no momento: ${msg.content} não disponível!`,
@@ -142,9 +142,9 @@ const MusicPause = (msg) => {
     servers[msg.guild.id].dispatcher.pause();
 };
 
-const MusicResume = (msg) => {
+const musicResume = (msg) => {
     if (!servers[msg.guild.id].estouTocando) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Nenhuma musica está sendo tocada no momento: ${msg.content} não disponível!`,
@@ -154,9 +154,9 @@ const MusicResume = (msg) => {
     servers[msg.guild.id].dispatcher.resume();
 };
 
-const MusicSkip = (msg) => {
+const musicSkip = (msg) => {
     if (msg.member.voice.channel.id !== msg.guild.me.voice.channel.id) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Você não está no mesmo canal de voz do bot: ${msg.content} não disponível!`,
@@ -170,13 +170,13 @@ const MusicSkip = (msg) => {
         console.log('estou no skip');
         tocaMusicas(msg);
     } else if (servers[msg.guild.id].fila.length === 1) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Existe apenas uma musica na fila: ${msg.content} não disponível!`,
         );
     } else {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Não existe músicas na fila: ${msg.content} não disponível!`,
@@ -184,7 +184,7 @@ const MusicSkip = (msg) => {
     }
 };
 
-const MusicReset = (msg) => {
+const musicReset = (msg) => {
     servers[msg.guild.id].fila = [];
     servers[msg.guild.id].estouTocando = false;
     tocaMusicas(msg);
@@ -194,24 +194,24 @@ const MusicReset = (msg) => {
     console.log('Resetado');
 };
 
-const MusicList = (msg) => {
+const musicList = (msg) => {
     if (servers[msg.guild.id].fila.length <= 0) {
-        EmbedMusicErr(
+        embedMusicErr(
             msg,
             `Comando Invalido: ${msg.content}`,
             `Não existe músicas na lista: ${msg.content} não disponível!`,
         );
         return;
     }
-    EmbedMusicList(msg, servers[msg.guild.id].fila);
+    embedMusicList(msg, servers[msg.guild.id].fila);
 };
 
 module.exports = {
     tocaMusicas,
-    MusicPlay,
-    MusicPause,
-    MusicResume,
-    MusicSkip,
-    MusicReset,
-    MusicList,
+    musicPlay,
+    musicPause,
+    musicResume,
+    musicSkip,
+    musicReset,
+    musicList,
 };

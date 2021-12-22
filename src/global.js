@@ -5,7 +5,7 @@ const google = require('googleapis');
 const fs = require('fs');
 const configs = require('../config.json');
 const { servers } = require('./Functions/Server/Server');
-const { EmbedUserErr } = require('./Components/Embed/EmbedUser');
+const { embedUserErr } = require('./Components/Embed/EmbedUser');
 
 const cliente = new Discord.Client();
 const prefix = configs.PREFIX;
@@ -21,10 +21,10 @@ const resetVariaveis = (msg) => {
     servers[msg.guild.id].estouTocando = false;
 };
 
-const RequiredVoiceChannel = (msg) => {
+const requiredVoiceChannel = (msg) => {
     if (!msg.member.voice.channel) {
         console.log('If do voice');
-        EmbedUserErr(
+        embedUserErr(
             msg,
             'Comando Invalido',
             `O comando ${msg.content}: necessita que você esteja em um canal de voz!`,
@@ -43,5 +43,5 @@ module.exports = {
     youtube,
     resetVariaveis,
     TOKKEN,
-    RequiredVoiceChannel,
+    requiredVoiceChannel,
 };

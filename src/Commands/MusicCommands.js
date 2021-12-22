@@ -1,8 +1,8 @@
 const { prefix } = require('../global');
-const { MusicPlay, MusicSkip, MusicReset, MusicPause, MusicResume, MusicList } = require('../Functions/Music/Music');
+const { musicPlay, musicSkip, musicReset, musicPause, musicResume, musicList } = require('../Functions/Music/Music');
 
 // Aqui ficam os comandos relacionados a musicas
-const MusicCommands = (msg) => {
+const musicCommands = (msg) => {
     // eslint-disable-next-line
     const [comando_recebido, ...resto] = msg.content.split(' ');
     // eslint-disable-next-line
@@ -10,27 +10,27 @@ const MusicCommands = (msg) => {
         // eslint-disable-next-line
         case `${prefix}play`:
             console.log('Chamou Switch case PLAY');
-            MusicPlay(msg);
+            musicPlay(msg);
             break;
         case `${prefix}pause`:
-            MusicPause(msg);
+            musicPause(msg);
             break;
         case `${prefix}resume`:
-            MusicResume(msg);
+            musicResume(msg);
             break;
         case `${prefix}skip`:
-            MusicSkip(msg);
+            musicSkip(msg);
             break;
         case `${prefix}reset`:
-            MusicReset(msg);
+            musicReset(msg);
             break;
         case `${prefix}list`:
-            MusicList(msg);
+            musicList(msg);
             break;
         default:
     }
 };
 
 module.exports = {
-    MusicCommands,
+    musicCommands,
 };

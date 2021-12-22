@@ -2,7 +2,7 @@ const { prefix } = require('../../global');
 const { servers } = require('../Server/Server');
 const { resetVariaveis } = require('../../global');
 
-const VoiceChannel = async (msg) => {
+const voiceChannel = async (msg) => {
     if (msg.content === `${prefix}join`) {
         servers[msg.guild.id].connection = await msg.member.voice.channel.join();
     }
@@ -13,5 +13,5 @@ const VoiceChannel = async (msg) => {
 };
 
 module.exports = {
-    VoiceChannel,
+    voiceChannel,
 };

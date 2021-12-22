@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { searchYoutubeMusic } = require('../../Functions/Music/Youtube');
 
-const EmbedMusicErr = (msg, title, description) => {
+const embedMusicErr = (msg, title, description) => {
     const EmbedMessageMusicErr = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle(`${title}`)
@@ -13,7 +13,7 @@ const EmbedMusicErr = (msg, title, description) => {
     msg.reply(EmbedMessageMusicErr);
 };
 
-const EmbedMusicAdd = (msg, title, nomeCanal, thumb) => {
+const embedMusicAdd = (msg, title, nomeCanal, thumb) => {
     const EmbedMessageMusicAdd = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle(`Música Escolhida: ${title}`)
@@ -25,7 +25,7 @@ const EmbedMusicAdd = (msg, title, nomeCanal, thumb) => {
     msg.reply(EmbedMessageMusicAdd);
 };
 
-const EmbedMusicList = (msg, listMusic) => {
+const embedMusicList = (msg, listMusic) => {
     const EmbedMessageMusicAdd = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Lista de Músicas')
@@ -42,7 +42,7 @@ const EmbedMusicList = (msg, listMusic) => {
     msg.reply(EmbedMessageMusicAdd);
 };
 
-const EmbedMusicTocando = async (msg, musica) => {
+const embedMusicTocando = async (msg, musica) => {
     const musicaAtributos = await searchYoutubeMusic(musica);
     const EmbedMessageMusicTocando = new MessageEmbed()
         .setColor('#0099ff')
@@ -56,8 +56,8 @@ const EmbedMusicTocando = async (msg, musica) => {
 };
 
 module.exports = {
-    EmbedMusicErr,
-    EmbedMusicAdd,
-    EmbedMusicList,
-    EmbedMusicTocando,
+    embedMusicErr,
+    embedMusicAdd,
+    embedMusicList,
+    embedMusicTocando,
 };
