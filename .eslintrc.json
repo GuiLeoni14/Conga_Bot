@@ -20,6 +20,7 @@
     ],
     "no-unused-vars": 0,
     "import/extensions": 0,
-    "prefer-const": 0
+    "prefer-const": 0,
+    "no-console": 0
     }
 }
