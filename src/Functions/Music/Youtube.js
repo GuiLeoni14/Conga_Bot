@@ -12,7 +12,14 @@ const searchYoutube = ({ q, part, fields, type }) =>
 
 const searchYoutubeMusic = async (musica) => {
     try {
-        const musicaTocar = musica.slice(6);
+        // const musicaTocar = musica.slice(6);
+        let musicaTocar = '';
+        if (musica.includes('https://www.youtube.com/watch?v=')) {
+            musicaTocar = `https://youtu.be/${musica.slice(-11)}`;
+        } else {
+            musicaTocar = musica;
+        }
+        console.log(`Musica tovar${musicaTocar}`);
         const result = await searchYoutube({
             q: musicaTocar,
             part: 'snippet',
