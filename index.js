@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 const { configs, cliente, prefix, resetVariaveis, TOKKEN } = require('./src/global');
 const { Admin } = require('./src/Functions/Admin/Admin');
-const { servers, saveServer, loadServers } = require('./src/Functions/Server/Server');
+const { servers, saveServer, loadServers, searchServer } = require('./src/Functions/Server/Server');
 const { allCommands } = require('./src/Commands/AllCommands');
 const { searchYoutubeMusic } = require('./src/Functions/Music/Youtube');
 
@@ -22,6 +22,8 @@ cliente.on('guildCreate', (guild) => {
 });
 
 cliente.on('message', async (msg) => {
+    await searchServer(msg.guild.id);
+    console.log('Ja salvou o servidor');
     allCommands(msg);
     if (msg.content === `${prefix}admin`) {
         try {
