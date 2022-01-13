@@ -12,4 +12,4 @@
 </ul> 
 <h3> Convide o bot para seu servidor: </h3>
 + link: https://discord.com/oauth2/authorize?client_id=919760244236763186&scope=bot&permissions=8
-<h3> Alicação ainda em desenvolvimento, novos comandos estão sendo criados e adicionados. </h3>
+<h3> Aplicação ainda em desenvolvimento, novos comandos estão sendo criados e adicionados. </h3>
