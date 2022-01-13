@@ -1,4 +1,4 @@
-# Conga_Bot
+# 🎵 Conga_Bot 🎵
 > Status: Developing ⚠️
 ## Descrição:
 <p>Este é um projeto sobre um Bot para a plataforma discord que realiza tarefas como tocar músicas, tendo como principal objetivo: aprender os conceitos de JavaScript(NodeJs).</p>
