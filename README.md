@@ -2,7 +2,7 @@
 > Status: Developing ⚠️
 ## Descrição:
 <p>Este é um projeto sobre um Bot para a plataforma discord que realiza tarefas como tocar músicas, tendo como principal objetivo: aprender os conceitos de JavaScript(NodeJs).</p>
-<h2> Principais comandos: </h2>
+<h2> 🎼 Principais comandos: 🎼</h2>
 <ul>
   <li>#help - Lista os comandos disponívies</li>
   <li>#play - Toca a música desejada [pelo link || pelo nome]</li>
